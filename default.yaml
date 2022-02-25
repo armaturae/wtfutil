@@ -1,0 +1,167 @@
+wtf:
+  colors:
+    background: black
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+    checked: yellow
+    highlight: 
+      fore: black
+      back: gray
+    rows:
+      even: yellow
+      odd: white
+  grid:
+    # How _wide_ the columns are, in terminal characters. In this case we have
+    # four columns, each of which are 35 characters wide.
+    columns: [35, 35, 35, 35]
+    # How _high_ the rows are, in terminal lines. In this case we have four rows
+    # that support ten line of text and one of four.
+    rows: [10, 10, 10, 10, 4]
+  refreshInterval: 1
+  openFileUtil: "open"
+  mods:
+    # You can have multiple widgets of the same type.
+    # The "key" is the name of the widget and the type is the actual
+    # widget you want to implement.
+    americas_time:
+      title: "Worldwide Time"
+      type: clocks
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        UTC: "Etc/UTC"
+        Vancouver: "America/Boston"
+        NewYork: "America/New_York"
+        Europe: "Etc/GMT"
+        Israel: "Asia/Jerusalem"
+      position:
+        top: 0
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+    ip:
+      type: ipinfo
+      title: "My IP"
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 0
+        left: 2
+        height: 1
+        width: 2
+      refreshInterval: 150
+    resources:
+      type: resourceusage
+      enabled: true
+      position:
+        top: 0
+        left: 0
+        height: 2
+        width: 1
+      refreshInterval: 1
+    taskwarrior:
+      title: "Tasks"
+      type: cmdrunner
+      cmd: "task"
+      args: ["minimal"]
+      enabled: true
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 4
+      refreshInterval: 5
+    newsboat:
+      title: "Newsboat Unread"
+      type: cmdrunner
+      cmd: "newsboat"
+      args: ["-x", "reload", "print-unread"]
+      enabled: true
+      position:
+        top: 0
+        left: 4
+        height: 1
+        width: 1
+      refreshInterval: 20
+    disks:
+      type: cmdrunner
+      title: "Disk Usage"
+      cmd: "df"
+      args: ["-hT", "-t", "ext4", "-t", "ext2", "-t", "ext2", "-t", "vfat", "-t", "exfat", "-t", "ntfs"]
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        height: 2
+        width: 3
+      refreshInterval: 3600
+    exchangerates:
+      enabled: true
+      focusable: false
+      position:
+        top: 2
+        left: 3
+        width: 1
+        height: 2
+      precision: 3
+      rates:
+        USD:
+          - "EUR"
+          - "ILS"
+          - "GBP"
+        EUR:
+          - "USD"
+          - "ILS"
+          - "GBP"
+        GBP:
+          - "USD"
+          - "EUR"
+          - "ILS"
+      title: "💰 Rates"
+    bittrex:
+      colors:
+        base:
+          name: orange
+          displayName: red
+        market:
+          name: red
+          field: white
+          value: green
+      enabled: true
+      position:
+        top: 2
+        left: 4
+        height: 4
+        width: 1
+      refreshInterval: 5
+      summary:
+        USD:
+          displayName: US Dollar
+          market:
+          - BTC
+          - ETH
+          - LTC
+          - EOS
+    digitalclock:
+      color: orange
+      enabled: true
+      font: bigfont
+      hourFormat: 12
+      position:
+        top: 4
+        left: 0
+        height: 2
+        width: 1
+      refreshInterval: 1
+      title: "big clock"
+      type: "digitalclock"
+    
